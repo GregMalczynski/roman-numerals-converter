@@ -1,0 +1,79 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    background-color: rgb(31, 37, 51);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 22px;
+    height: 100vh;
+    width: 100vw;
+}
+.container{
+    width: 90%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.header{
+    text-align: center;
+    height: 120px;
+    color: rgb(255, 239, 13);
+}
+.subtitle{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+.main{
+    margin-top: 20px;
+    text-align: center;
+    text-align: center;
+}
+.inputNumber{
+    height: 35px;
+    width: 120px;
+    background: black;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+}
+.button{
+    width: 100px;
+    height: 35px;
+    background: rgb(252, 104, 78);
+    border-radius: 5px;
+    color: black;
+}
+.myCustomHover:hover{
+    background: white;
+}
+.show{
+    height: 120px;
+    text-align: center;
+    margin-top: 30px;
+}
+.result{
+    font-size: 40px;
+    color: rgb(255, 239, 13);
+}
+.error{
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgb(87, 149, 207);
+}
+hr {
+    border: 1;
+    width: 15%;               
+    background-color:#ffffff;
+    height: 2px;
+    margin: auto;
+}
