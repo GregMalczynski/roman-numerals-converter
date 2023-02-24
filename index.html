@@ -16,16 +16,16 @@
             <h2>+ Roman Numerals Converter +</h2>
             <p class="subtitle">Write number ( 4 digits ) below to convert</p>
         </header>
-        <main class="main">
+        <div class="converter-wrapper">
             <hr><br>
-            <input type="text" class="inputNumber" value="" placeholder="write here..." maxlength="4"/>
+            <input type="text" class="inputValue" value="" placeholder="write here..." maxlength="4"/>
             <button class="button"><b>CONVERT</b></button>
             <div class="error"></div><br>
-        </main>
-        <summary class="show">
-            <h3 class="inputResult"></h3>
-            <h1 class="result"></h1>
-        </summary>
+        </div>
+        <div class="display-wrapper">
+            <h3 class="displayEnteredValue"></h3>
+            <h1 class="displayConvertedValue"></h1>
+        </div>
     </div>
     <script src='main.js'></script>
 </body>

@@ -1,31 +1,32 @@
-const inputNumber = document.querySelector('.inputNumber');
-const result = document.querySelector('.result');
-const inputResult = document.querySelector('.inputResult');
+const inputValue = document.querySelector('.inputValue');
+const displayConvertedValue = document.querySelector('.displayConvertedValue');
+const displayEnteredValue = document.querySelector('.displayEnteredValue');
 const button = document.querySelector('.button');
-const error = document.querySelector('.error')
+const errorMessage = document.querySelector('.error')
 
-inputNumber.addEventListener('input', inputHandleChange );
+inputValue.addEventListener('input', inputHandleChange );
 
-const regNumbers = /^[0-9]+$/
+const numbersAccepted = /^[0-9]+$/;
 
-// Input Value Validation
+// Validate Input Value
 
 function inputHandleChange(e) {
-    inputValue = e.target.value;
-    if ( !inputValue || inputValue == '' ) {
-        error.innerHTML = 'CANT BE EMPTY !'
+    valueToConvert = e.target.value;
+    
+    if ( !valueToConvert || valueToConvert == '' ) {
+        errorMessage.innerHTML = 'CANT BE EMPTY !'
     } else {
-        if ( inputValue.match(regNumbers) ) {
-            error.innerHTML = '';
-            button.addEventListener('click', change);
+        if ( valueToConvert.match(numbersAccepted)) {
+            errorMessage.innerHTML = '';
+            button.addEventListener('click', checkInputValueLength);
             button.style.cursor = 'pointer';
-            button.classList.add('myCustomHover');
-            change(inputValue);
+            button.classList.add('customHover');
+            checkInputValueLength(valueToConvert);
         } else {
-            error.innerHTML = 'ONLY NUMBERS !';
-            button.removeEventListener('click', change );
+            errorMessage.innerHTML = 'ONLY NUMBERS !';
+            button.removeEventListener('click', checkInputValueLength);
             button.style.cursor = 'auto';
-            button.classList.remove('myCustomHover');
+            button.classList.remove('customHover');
         }
     } 
 };
@@ -37,55 +38,51 @@ const symbols = [
     [ 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC', 'C'],
     [ 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM', 'M'],
     [ 'M', 'MM', 'MMM', 'MCD', 'MD', 'MDC', 'MDCC', 'MDCCC', 'MCM', 'M'],
- ];
- 
- function change(inputValue) {
-     const number = inputValue;
+];
 
-     const numString = number.toString();
+function checkInputValueLength(valueToConvert) {
+    const number = valueToConvert;
+    const numberToString = number.toString();
+
+    switch ( numberToString.length ) {
+        case 1:
+            valueLength = 1;
+            convertToSymbol(valueLength);
+            return a;
+        case 2:
+            valueLength = 2;
+            convertToSymbol(valueLength);
+            return a + b;
+        case 3:
+            valueLength = 3;
+            convertToSymbol(valueLength);
+            return a + b + c;
+        case 4:
+            valueLength = 4;
+            convertToSymbol();
+            return a + b + c + d;
+    }
  
-     if ( numString.length === 1 ) {
-         size = 1;
-         changeNum(size);
-         return a;
-     };
- 
-     if ( numString.length === 2 ) {
-         size = 2;
-         changeNum(size);
-         return a + b;
-     };
- 
-     if ( numString.length === 3 ) {
-         size = 3;
-         changeNum(size);
-         return a + b + c;
-     };
- 
-     if ( numString.length === 4 ) {
-         size = 4;
-         changeNum();
-         return a + b + c + d;
-     };
- 
-     function changeNum() {
+    function convertToSymbol() {
         
-         numString[0] === undefined ? first = -1 : first = numString[0].valueOf() - (1);
-         numString[1] === undefined ? second = -1 : second = numString[1].valueOf() - (1);
-         numString[2] === undefined ? third = -1 : third = numString[2].valueOf() - (1);
-         numString[3] === undefined ? fourth = -1 : fourth = numString[3].valueOf() - (1);
+        numberToString[0] === undefined ? firstDigit = -1 : firstDigit = numberToString[0].valueOf() - (1);
+        numberToString[1] === undefined ? secondDigit = -1 : secondDigit = numberToString[1].valueOf() - (1);
+        numberToString[2] === undefined ? thirdDigit = -1 : thirdDigit = numberToString[2].valueOf() - (1);
+        numberToString[3] === undefined ? fourthDigit = -1 : fourthDigit = numberToString[3].valueOf() - (1);
          
-         first === -1 ? a = '' : a = symbols[size - (1)][first];
-         second === -1 ? b = '' : b = symbols[size - (2)][second];
-         third === -1 ? c = '' : c = symbols[size - (3)][third];
-         fourth === -1 ? d = '' : d = symbols[size - (4)][fourth];
-         return a, b, c, d;
-     };
-     // Print Result / Reset Values / Remove Button Listener
+        firstDigit === -1 ? a = '' : a = symbols[valueLength - (1)][firstDigit];
+        secondDigit === -1 ? b = '' : b = symbols[valueLength - (2)][secondDigit];
+        thirdDigit === -1 ? c = '' : c = symbols[valueLength - (3)][thirdDigit];
+        fourthDigit === -1 ? d = '' : d = symbols[valueLength - (4)][fourthDigit];
 
-     inputResult.innerHTML = inputNumber.value;
-     result.innerHTML = a + b + c + d ;
-     inputNumber.value = '';
-     button.classList.remove('myCustomHover');
-     button.removeEventListener('click', change );
- };
+        return a, b, c, d;
+    };
+
+    // Print Result / Reset Values / Remove Button Listener
+
+    displayEnteredValue.innerHTML = inputValue.value;
+    displayConvertedValue.innerHTML = a + b + c + d ;
+    inputValue.value = '';
+    button.classList.remove('customHover');
+    button.removeEventListener('click', checkInputValueLength );
+};
