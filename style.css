@@ -1,79 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;800&display=swap');
+
 *{
     border: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Exo', sans-serif;
 }
 body{
     position: relative;
-    background-color: rgb(31, 37, 51);
+    background-color: #E6E8EE;
     font-family: 'Ubuntu', sans-serif;
     font-size: 22px;
     height: 100vh;
     width: 100vw;
 }
 .container{
-    width: 90%;
+    max-width: 500px;
     position: absolute;
     display: flex;
     flex-direction: column;
-    color: aliceblue;
+    border-radius: 15px;
+    padding: 20px;
+    color: #6E7793;
+    background: white;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(110, 119, 147, 0.4);
 }
 .header{
     text-align: center;
-    height: 120px;
-    color: rgb(255, 239, 13);
+    height: 100px;
+    color: #6E7793;
 }
 .subtitle{
-    color: rgb(255, 255, 255);
-    font-size: 20px;
+    color: #CC366C;
+    font-size: 18px;
 }
 .converter-wrapper{
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px;
     text-align: center;
     text-align: center;
 }
 .inputValue{
-    height: 35px;
-    width: 120px;
-    background: black;
+    height: 45px;
+    width: 320px;
+    font-family: 'Exo', sans-serif;
+    background: none;
     border-radius: 5px;
-    color: white;
-    font-size: 18px;
+    border: 1px solid #6E7793;
+    color: #6E7793;
+    font-size: 22px;
+    font-size: 20px;
     text-align: center;
+    font-weight: 800;
     outline: none;
 }
-.button{
-    width: 100px;
-    height: 35px;
-    background: rgb(252, 104, 78);
-    border-radius: 5px;
-    color: black;
+input::-webkit-input-placeholder {
+    font-weight: 400;
+    opacity: 0.6;
 }
-.customHover:hover{
-    background: white;
+.button{
+    width: 320px;
+    height: 45px;
+    background: #CC366C;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+    transition: 0.2s ease;
+}
+.button:hover{
+    background: #6E7793;
 }
 .display-wrapper{
-    height: 120px;
+    height: 80px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .displayConvertedValue{
     font-size: 40px;
-    color: rgb(255, 239, 13);
+    color: #CC366C;
 }
 .error{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 14px;
-    color: rgb(87, 149, 207);
+    color: #6E7793;
 }
 hr {
     border: 1;
     width: 15%;               
-    background-color:#ffffff;
-    height: 2px;
+    background-color:#CC366C;
+    height: 4px;
     margin: auto;
 }
